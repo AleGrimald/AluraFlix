@@ -113,7 +113,7 @@ const Formulario = (props) =>{
                         <Boton className="form__guardar" type="submit" value="Guardar"/>
                         <Boton className="form__limpiar" type="reset" value="Limpiar"/>
                     </div>
-                    <div className="contenedor__btnizq">
+                    <div className="contenedor__btderecha">
                         <button 
                             cambiarFormulario2={props.activar2} 
                             className="form__crear" 
@@ -126,7 +126,7 @@ const Formulario = (props) =>{
                 
             </form>
 
-            { mostrarFormulario2 === true ? <Formulario2/> : <></>}
+            { mostrarFormulario2 === true ? <Formulario2 lista={props.lista}/> : <></>}
         </section>
     )
 }

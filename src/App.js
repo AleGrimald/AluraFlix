@@ -4,6 +4,7 @@ import Banner from './componentes/Banner/Banner.jsx';
 import Formulario from './componentes/Formulario/Formulario';
 import Seccion from "./componentes/Seccion/index.jsx";
 import Footer from './componentes/Footer';
+import Tabla from './componentes/Tabla';
 import { useState } from "react"; //el hook debe ser utilizado dentro de un componente
 
 function App() {
@@ -120,6 +121,7 @@ function App() {
 
       {/*Ternario --> condicion ? si : no*/}
       { mostrarFormulario === true ? <Formulario
+          lista={secciones}
           opciones={secciones.map((opcion)=>opcion.titulo )}
           registrarVideo={registrarVideo}
         /> : <></>}
