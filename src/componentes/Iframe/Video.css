@@ -1,0 +1,10 @@
+.contenedor_videos{
+    width: 432px;
+    height: 260.85px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: 4px solid;
+    border-radius: 4px;
+}
