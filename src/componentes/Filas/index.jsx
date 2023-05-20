@@ -1,5 +1,12 @@
+import Celdas from "../Celdas";
 const Fila = (props)=>{
-    return <tr>{props.datos.titulo}</tr>
+    const {nombre,descripcion,editar,remover}=props.datos
+    return <tr className="fila">
+        <Celdas datos={nombre}/>
+        <Celdas datos={descripcion}/>
+        <Celdas datos={editar}/>
+        <Celdas datos={remover}/>
+    </tr>
 }
 
 export default Fila;

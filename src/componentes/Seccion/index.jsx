@@ -11,7 +11,7 @@ const Seccion = (props) =>{
     return( videos.length > 0 &&
         <section className="seccion">
             <div className="contenedor__titulo">
-                <h3 className="titulo__h3" style={estiloTitulo}>{titulo}</h3>
+                <h3 className="titulo__h3" id="frontend" style={estiloTitulo}>{titulo}</h3>
                 <p className="titulo__p">{texto}</p>
             </div>
             <div className="contenedor__videos" style={scrollbar}>

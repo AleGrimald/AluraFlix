@@ -4,7 +4,6 @@ import Banner from './componentes/Banner/Banner.jsx';
 import Formulario from './componentes/Formulario/Formulario';
 import Seccion from "./componentes/Seccion/index.jsx";
 import Footer from './componentes/Footer';
-import Tabla from './componentes/Tabla';
 import { useState } from "react"; //el hook debe ser utilizado dentro de un componente
 
 function App() {
@@ -79,20 +78,7 @@ function App() {
     }
   ]);
 
-  
-  //Funcion para mostrar y ocultar el Formulario
-  const cambiarForm = () =>{
-    actualizarFormulario(!mostrarFormulario);
-  }
-
-  //obtenemos los datos que se ingresan en el formulario Nuevo video
-  const registrarVideo = (video) => {
-    //spread operator, es una copia
-    actualizarVideos([...videos, video]);
-  }
-
-  //Lista de secciones
-  const secciones = [
+  const [opcionesLista, setOpciones] = useState([
     {
       titulo:"Front End",
       colorFondo:"#6BD1FF",
@@ -113,7 +99,23 @@ function App() {
       colorFondo:"#FE8C2A",
       texto:"Formación Innovación y Gestión de Alura Latam",
     }
-  ]
+  ]);
+
+
+  //Funcion para mostrar y ocultar el Formulario
+  const cambiarForm = () =>{
+    actualizarFormulario(!mostrarFormulario);
+  }
+
+  //obtenemos los datos que se ingresan en el formulario Nuevo video
+  const registrarVideo = (video) => {
+    //spread operator, es una copia
+    actualizarVideos([...videos, video]);
+  }
+
+  const crearCategoria = (nuevaCategoria)=>{
+    setOpciones([...opcionesLista, nuevaCategoria])
+  }
 
   return (
     <div className="App">
@@ -121,21 +123,21 @@ function App() {
 
       {/*Ternario --> condicion ? si : no*/}
       { mostrarFormulario === true ? <Formulario
-          lista={secciones}
-          opciones={secciones.map((opcion)=>opcion.titulo )}
+          lista={opcionesLista}
+          opciones={opcionesLista.map((opcion)=>opcion.titulo )}
           registrarVideo={registrarVideo}
+          crearCategoria={crearCategoria}
         /> : <></>}
         
       <Banner/>
 
       {/*Vamos a recorrer nuestro objeto secciones para crear las secciones de html. Usamos .map*/
-        secciones.map((seccionesParametro, index)=><Seccion 
+        opcionesLista.map((seccionesParametro, index)=><Seccion 
         datos={seccionesParametro} 
         key={index}
         videos={videos.filter(video => video.opciones === seccionesParametro.titulo)}
         />)
       }
-
       <Footer/>
     </div>
   );

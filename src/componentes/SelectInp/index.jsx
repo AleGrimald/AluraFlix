@@ -12,6 +12,7 @@ const SelectInp = (props) =>{
         props.actualizarValor(event.target.value);
     }
 
+
     return(
     <section className="contenedor_select">
         <select value={props.valor} onChange={manejarCambio} className={props.className}>

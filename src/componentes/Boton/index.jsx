@@ -16,9 +16,14 @@ const Boton = (props) =>{
     
         
     }*/
+    const {cambiarForm, type, className, value}= props
     return (
     <div>
-        <button cambiarForm={props.cambiarForm} type={props.type} className={props.className} onClick={props.cambiarForm} >{props.value}</button>
+        <button 
+            type={type} 
+            className={className} 
+            onClick={cambiarForm} 
+            >{value}</button>
     </div>
 )}
 

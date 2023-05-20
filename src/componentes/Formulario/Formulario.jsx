@@ -4,7 +4,7 @@ import SelectInp from "../SelectInp";
 import Textarea from "../Textarea";
 import { useState } from "react";
 import Boton from "../Boton";
-import Formulario2 from "../Formulario2";
+import Formulario2 from "../Categorias";
 
 const Formulario = (props) =>{
 
@@ -13,22 +13,14 @@ const Formulario = (props) =>{
     //de esta forma evitamos que el navegador se encargue del funcionamiento del formulario
     //y pasamos a controlarlo nosotros
     
-
+//States del primer FORM
     const [titulo, setTitulo] = useState("");
     const [linkV, setLinkV] = useState("");
     const [linkF, setLinkF] = useState("");
     const [opciones, setOpciones] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [codigo, setCodigo] = useState("");
-    const [mostrarFormulario2, actualizarFormulario2] = useState(false);
-
-
-
-    const {registrarVideo}=props;
-
-    const cambiarFormulario2 = () =>{
-        actualizarFormulario2(!mostrarFormulario2);
-    }
+    const {registrarVideo, crearCategoria}=props;
 
     const manejarEnvio = (event) => {
         event.preventDefault();
@@ -43,7 +35,6 @@ const Formulario = (props) =>{
         }
         registrarVideo(datosAEnviar);
     }
-
     const limpiarInputs = (event) =>{
         event.preventDefault();
         setTitulo("");
@@ -52,6 +43,12 @@ const Formulario = (props) =>{
         setOpciones("")
         setDescripcion("");
         setCodigo("");
+    }
+//Form2 
+    const [activarForm2, setForm2]=useState(false);
+    const controlarForm2 = (e)=>{
+        e.preventDefault();
+        setForm2(!activarForm2);
     }
 
     return(
@@ -90,6 +87,7 @@ const Formulario = (props) =>{
                     valor={opciones} 
                     actualizarValor ={setOpciones}
                     opcion={props.opciones}
+                    // categoria={categorias}
                 />
 
                 <Textarea 
@@ -115,18 +113,19 @@ const Formulario = (props) =>{
                     </div>
                     <div className="contenedor__btderecha">
                         <button 
-                            cambiarFormulario2={props.activar2} 
                             className="form__crear" 
                             type="button" 
-                            onClick={cambiarFormulario2}>
+                            onClick={controlarForm2}>
                             Nueva Categoria
                         </button>
                     </div>
                 </div>
-                
             </form>
-
-            { mostrarFormulario2 === true ? <Formulario2 lista={props.lista}/> : <></>}
+            
+            { activarForm2 === true ? <Formulario2
+                crearCategoria={crearCategoria}
+                /> : <></>
+            }
         </section>
     )
 }

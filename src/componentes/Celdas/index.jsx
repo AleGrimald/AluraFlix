@@ -1,8 +1,8 @@
 
-const Celda = (props)=>{
+const Celdas = (props)=>{
     return <td>
-
+        {props.datos}
     </td>
 }
 
-export default Celda;
+export default Celdas;

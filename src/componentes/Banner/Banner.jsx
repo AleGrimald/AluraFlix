@@ -4,7 +4,7 @@ function Banner() {
     return(
         <section className="banner">
             <div className="contenedor__izq">
-                <a className="banner__boton" href=".banner">Front End</a>
+                <a className="banner__boton" href="#frontend">Front End</a>
                 <h2 className="banner__titulo">Challenge React</h2>
                 <p className="banner__parrafo">
                     Este challenge es una forma de
