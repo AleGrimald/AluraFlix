@@ -1,0 +1,41 @@
+.celdas{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.titulo{
+    width: 25%;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 18px;
+    color: #F5F5F5;
+    text-align: left;
+    background-color: chocolate;
+}
+
+.texto{
+    width: 55%;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 18px;
+    color: #E5E5E5;
+    text-align: left;
+}
+
+.editar{
+    width: 10%;
+    text-align: center;
+    color: #E5E5E5;
+    text-decoration: none;
+}
+
+.remover{
+    width: 10%;
+    background-color: brown;
+    text-align: center;
+    color: #E5E5E5;
+    text-decoration: none;
+}

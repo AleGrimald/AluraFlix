@@ -83,21 +83,29 @@ function App() {
       titulo:"Front End",
       colorFondo:"#6BD1FF",
       texto:"Formación Front End de Alura Latam",
+      editar:"Editar",
+      remover:"Remover"
     },
     {
       titulo:"Back End",
       colorFondo:"#00C86F",
       texto:"Formación Back End de Alura Latam",
+      editar:"Editar",
+      remover:"Remover"
     },
     {
       titulo:"Dev UX/UI",
       colorFondo:"#5d00c8",
       texto:"Formación UX/Design de Alura Latam",
+      editar:"Editar",
+      remover:"Remover"
     },
     {
       titulo:"Inovacion y Gestion",
       colorFondo:"#FE8C2A",
       texto:"Formación Innovación y Gestión de Alura Latam",
+      editar:"Editar",
+      remover:"Remover"
     }
   ]);
 
@@ -114,7 +122,7 @@ function App() {
   }
 
   const crearCategoria = (nuevaCategoria)=>{
-    setOpciones([...opcionesLista, nuevaCategoria])
+    setOpciones([...opcionesLista, nuevaCategoria]);
   }
 
   return (
@@ -123,12 +131,14 @@ function App() {
 
       {/*Ternario --> condicion ? si : no*/}
       { mostrarFormulario === true ? <Formulario
-          lista={opcionesLista}
           opciones={opcionesLista.map((opcion)=>opcion.titulo )}
+          ot= {opcionesLista}
           registrarVideo={registrarVideo}
           crearCategoria={crearCategoria}
+          mostrarF1={actualizarFormulario}
+          mostrar={mostrarFormulario}
         /> : <></>}
-        
+      
       <Banner/>
 
       {/*Vamos a recorrer nuestro objeto secciones para crear las secciones de html. Usamos .map*/

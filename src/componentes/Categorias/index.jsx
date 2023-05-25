@@ -8,7 +8,7 @@ const Formulario2 =(props)=>{
     const {crearCategoria}=props;
     const [tituloC, setTituloC]=useState("");
     const [descripcionC, setDescripcionC] = useState("");
-    const [colorC, setColor]= useState("#000FFF");
+    const [colorC, setColor]= useState("#FFBA05");
     const [codigoC, setCodigoC] = useState("");
     
     const manejarNuevaCategoria = (event)=>{
@@ -20,6 +20,7 @@ const Formulario2 =(props)=>{
         }
         crearCategoria(categoriaNueva);
     }
+
     const limpiarInputs = (event) =>{
         event.preventDefault();
         setTituloC("");
@@ -69,7 +70,7 @@ const Formulario2 =(props)=>{
                 <Boton className="form__limpiar" type="reset" value="Limpiar"/>
             </div>
             
-            <Tabla/>
+            <Tabla ot={props.ot}/>
         </form>
     )
 }

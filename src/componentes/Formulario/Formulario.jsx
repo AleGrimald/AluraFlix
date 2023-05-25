@@ -20,7 +20,7 @@ const Formulario = (props) =>{
     const [opciones, setOpciones] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const [codigo, setCodigo] = useState("");
-    const {registrarVideo, crearCategoria}=props;
+    const {registrarVideo, crearCategoria/*, mostrarF1, mostrar*/}=props;
 
     const manejarEnvio = (event) => {
         event.preventDefault();
@@ -51,6 +51,7 @@ const Formulario = (props) =>{
         setForm2(!activarForm2);
     }
 
+    
     return(
         <section className="contenedor">
             <form onReset={limpiarInputs} onSubmit={manejarEnvio} className="form">
@@ -87,7 +88,6 @@ const Formulario = (props) =>{
                     valor={opciones} 
                     actualizarValor ={setOpciones}
                     opcion={props.opciones}
-                    // categoria={categorias}
                 />
 
                 <Textarea 
@@ -124,6 +124,7 @@ const Formulario = (props) =>{
             
             { activarForm2 === true ? <Formulario2
                 crearCategoria={crearCategoria}
+                ot={props.ot}
                 /> : <></>
             }
         </section>
